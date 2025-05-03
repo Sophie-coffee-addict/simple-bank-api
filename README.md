@@ -67,13 +67,16 @@ http://localhost:8080/api/transfer
 
 ## Project Structure
 
-📦SimpleBankPaymentsAPI
-┣ 📂Controllers
-┃ ┗ 📜TransferController.cs
-┣ 📂Models
-┃ ┗ 📜TransferRequest.cs
-┣ 📜Program.cs
-┣ 📜Dockerfile
-┣ 📜README.md
-┗ 📂.github/workflows
-┗ 📜dotnet.yml
+```bash
+SimpleBankPaymentsAPI
+├── Controllers
+│   └── TransferController.cs
+├── Models
+│   └── TransferRequest.cs
+├── Program.cs
+├── Dockerfile
+├── README.md
+└── .github
+    └── workflows
+        └── dotnet.yml
+```
