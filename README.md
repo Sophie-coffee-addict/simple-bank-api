@@ -29,6 +29,7 @@ A mock .NET 6 Web API for simulating bank transfers. Built with RESTful design, 
 ## Sample Request
 
 **POST** `/api/transfer`
+This endpoint simulates a successful bank transfer.
 
 ```json
 {
@@ -47,6 +48,10 @@ A mock .NET 6 Web API for simulating bank transfers. Built with RESTful design, 
   "timestamp": "2025-05-03T05:20:37.0781199Z"
 }
 ```
+
+## Postman Response Screenshot
+
+![API Response](./assets/postman-response.jpg)
 
 ## Run Locally
 
@@ -68,6 +73,7 @@ http://localhost:8080/api/transfer
 ## Project Structure
 
 ```bash
+
 SimpleBankPaymentsAPI
 ├── Controllers
 │   └── TransferController.cs
