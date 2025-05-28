@@ -52,6 +52,12 @@ This endpoint simulates a successful bank transfer.
 ## Postman Response Screenshot
 
 ![API Response](./assets/postman-response.jpg)
+ 
+## Logging Output Example
+The log includes timestamp, source and target accounts, and transfer amount – useful for debugging and auditing.
+
+<img width="713" alt="logging_1" src="https://github.com/user-attachments/assets/004457e9-4899-4ef8-9873-17af9b0f9901" />
+<img width="660" alt="logging_2" src="https://github.com/user-attachments/assets/e6fdcceb-38d7-4e1f-ade5-5a3c633824da" />
 
 ## Run Locally
 
