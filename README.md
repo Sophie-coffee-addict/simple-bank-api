@@ -68,9 +68,10 @@ Implement global exception handling using UseExceptionHandler middleware
 - Logs error details using ILogger<Program>
 - Returns consistent JSON error response with HTTP 500
 
-![error handing_1](https://github.com/user-attachments/assets/0a1895b1-dd92-4baa-b589-42a73988fc1e)
 
-<img width="892" alt="error handling_2" src="https://github.com/user-attachments/assets/22d51b6f-e505-4834-8bfe-00456ef69bee" />
+<img width="713" alt="error-handling_1" src="https://github.com/user-attachments/assets/0a1895b1-dd92-4baa-b589-42a73988fc1e" />
+
+<img width="892" alt="error-handling_2" src="https://github.com/user-attachments/assets/22d51b6f-e505-4834-8bfe-00456ef69bee" />
 
 
 
