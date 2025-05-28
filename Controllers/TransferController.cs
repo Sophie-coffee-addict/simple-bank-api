@@ -14,18 +14,21 @@ namespace SimpleBankPaymentsAPI.Controllers
         {
             _logger = logger;
         }
-        [HttpPost]
-        public IActionResult Transfer([FromBody] TransferRequest request)
-        {
-            _logger.LogInformation($"Received transfer request from {request.FromAccount} to {request.ToAccount} of amount {request.Amount} at {DateTime.UtcNow}");
 
-            // Simulate transfer logic
-            return Ok("Transfer successful");
-        }
+        // public IActionResult Transfer([FromBody] TransferRequest request)
+        // {
+        // _logger.LogInformation($"Received transfer request from {request.FromAccount} to {request.ToAccount} of amount {request.Amount} at {DateTime.UtcNow}");
+
+        //     // Simulate transfer logic
+        //     return Ok("Transfer successful");
+        // }
 
         [HttpPost]
         public IActionResult Post([FromBody] TransferRequest request)
         {
+
+            _logger.LogInformation($"Received transfer request from {request.FromAccount} to {request.ToAccount} of amount {request.Amount} at {DateTime.UtcNow}");
+
             if (string.IsNullOrWhiteSpace(request.FromAccount) ||
                 string.IsNullOrWhiteSpace(request.ToAccount) ||
                 request.Amount <= 0)
