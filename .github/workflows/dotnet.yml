@@ -1,11 +1,15 @@
+# This is the name of the GitHub Action workflow.
 name: Build and Test .NET API
+description: This workflow builds and tests a .NET API project on push or pull request to the main branch.
 
+# This is the trigger for the workflow. It runs on pushes and pull requests to the main branch.
 on:
   push:
     branches: ["main"]
   pull_request:
     branches: ["main"]
 
+# This section defines the jobs that will run in the workflow.
 jobs:
   build:
     runs-on: ubuntu-latest
