@@ -1,4 +1,4 @@
-# This is the name of the GitHub Action workflow.
+# This is the name of the GitHub Action workflow
 name: Build and Test .NET API
 description: This workflow builds and tests a .NET API project on push or pull request to the main branch.
 
@@ -13,24 +13,29 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    # Step 1: Checkout the code from the GitHub repository
     steps:
       - name: 🔄 Checkout repository
         uses: actions/checkout@v3
 
+      # Step 2: Install the specified version of the .NET SDK
       - name: 🛠️ Setup .NET SDK
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 6.0.x
 
+      # Step 3: Restore project dependencies (NuGet packages)
       - name: 📦 Restore dependencies
         run: dotnet restore
 
+      # Step 4: Step 4: Build the project in Release mode
       - name: 🧱 Build project
         run: dotnet build --no-restore --configuration Release
 
+      # Step 5: Placeholder for running tests (currently skipped)
       - name: ✅ Run tests (skipped if no test project)
         run: echo "No tests defined"
 
+      # Step 6: Publish the project to a local folder
       - name: 🚀 Publish build
         run: dotnet publish --configuration Release --output ./publish
