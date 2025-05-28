@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using SimpleBankPaymentsAPI.Models;
+using Microsoft.Extensions.Logging;
 
 namespace SimpleBankPaymentsAPI.Controllers
 {
@@ -7,6 +8,21 @@ namespace SimpleBankPaymentsAPI.Controllers
     [Route("api/[controller]")]
     public class TransferController : ControllerBase
     {
+        private readonly ILogger<TransferController> _logger;
+
+        public TransferController(ILogger<TransferController> logger)
+        {
+            _logger = logger;
+        }
+        [HttpPost]
+        public IActionResult Transfer([FromBody] TransferRequest request)
+        {
+            _logger.LogInformation($"Received transfer request from {request.FromAccount} to {request.ToAccount} of amount {request.Amount} at {DateTime.UtcNow}");
+
+            // Simulate transfer logic
+            return Ok("Transfer successful");
+        }
+
         [HttpPost]
         public IActionResult Post([FromBody] TransferRequest request)
         {
