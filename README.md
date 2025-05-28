@@ -103,6 +103,24 @@ docker run -d -p 8080:80 simple-bank-api
 Then POST to:
 http://localhost:8080/api/transfer
 
+## RESTful API Design Principles
+
+This project follows RESTful API design principles, ensuring a clean, resource-oriented, and predictable interface. Key aspects include:
+
+✅ Resource-based URL design: Endpoints are structured around logical resources, such as /api/transfer.
+
+✅ Use of HTTP methods to express intent: The API uses POST to create new transfer records, and can be extended with GET, PUT, or DELETE for full CRUD operations.
+
+✅ Stateless communication: Each request contains all necessary information, with no reliance on server-side session state.
+
+✅ JSON-formatted data: Both requests and responses use structured, readable JSON payloads.
+
+✅ Standardised responses: On success or failure, responses are consistent, and error handling is centralised using middleware.
+
+✅ Scalable architecture: The application is containerised with Docker and includes logging and exception handling, making it robust and production-ready.
+
+This approach makes the API intuitive for frontend developers and easy to integrate with external systems.
+
 ## Project Structure
 
 ```bash
