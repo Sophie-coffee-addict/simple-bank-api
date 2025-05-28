@@ -11,6 +11,8 @@ A mock .NET 6 Web API for simulating bank transfers. Built with RESTful design, 
 - ✅ POST API endpoint to simulate bank transfers
 - ✅ Validates sender, receiver, and amount fields
 - ✅ Generates unique transaction ID and timestamp
+- ✅ Integrated logging with `ILogger<T>` to track request activity
+- ✅ Global error handling using `UseExceptionHandler()` middleware with standard JSON response
 - ✅ Containerised with Docker
 - ✅ CI pipeline with GitHub Actions
 
@@ -58,6 +60,16 @@ The log includes timestamp, source and target accounts, and transfer amount – 
 
 <img width="713" alt="logging_1" src="https://github.com/user-attachments/assets/004457e9-4899-4ef8-9873-17af9b0f9901" />
 <img width="660" alt="logging_2" src="https://github.com/user-attachments/assets/e6fdcceb-38d7-4e1f-ade5-5a3c633824da" />
+
+## Error Handling Example
+Implement global exception handling using UseExceptionHandler middleware
+
+- Captures unhandled exceptions across the app
+- Logs error details using ILogger<Program>
+- Returns consistent JSON error response with HTTP 500
+
+![API Response](./assets/error-handling_1.jpg)
+![API Response](./assets/error-handling_2.jpg)
 
 ## Run Locally
 
