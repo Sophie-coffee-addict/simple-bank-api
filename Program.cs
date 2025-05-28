@@ -1,9 +1,12 @@
+using System.Text.Json;
+using Microsoft.AspNetCore.Diagnostics;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -17,6 +20,28 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseExceptionHandler(errorApp =>
+{
+    errorApp.Run(async context =>
+    {
+        var logger = context.RequestServices.GetRequiredService<ILogger<Program>>();
+        var exceptionHandlerPathFeature = context.Features.Get<IExceptionHandlerPathFeature>();
+
+        logger.LogError(exceptionHandlerPathFeature?.Error, "Unhandled exception occurred!");
+
+        context.Response.StatusCode = 500;
+        context.Response.ContentType = "application/json";
+
+        var result = JsonSerializer.Serialize(new
+        {
+            error = "An unexpected error occurred. Please try again later."
+        });
+
+        await context.Response.WriteAsync(result);
+    });
+});
+
 
 app.UseAuthorization();
 

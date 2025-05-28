@@ -28,6 +28,12 @@ namespace SimpleBankPaymentsAPI.Controllers
                 return BadRequest("Invalid transfer request.");
             }
 
+            if (request.Amount == 999)
+            {
+                throw new Exception("Simulated system failure!");
+            }
+
+
             var result = new
             {
                 TransactionId = Guid.NewGuid().ToString(),
